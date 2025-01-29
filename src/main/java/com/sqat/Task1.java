@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Task1 {
 
-    public String[][] readExcel(String filePath) {
+    public static String[][] readExcel(String filePath) {
         try (FileInputStream file = new FileInputStream(filePath)) {
             Workbook workbook = new XSSFWorkbook(file);
             Sheet sheet = workbook.getSheetAt(0);
@@ -28,5 +28,13 @@ public class Task1 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String retrieveUsername(String[][] arr) {
+        return arr[0][0];
+    }
+
+    public static String retrievePassword(String[][] arr) {
+        return arr[0][1];
     }
 }
